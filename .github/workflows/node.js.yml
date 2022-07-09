@@ -9,10 +9,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-defaults:
-  run:
-    shell: bash
-    working-directory: 'application/${{ matrix.project }}'
+
 
 jobs:
   test:
@@ -24,6 +21,11 @@ jobs:
         node-version: [14.x]
         project: [frontend, api]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: 'application/${{ matrix.project }}'
 
     steps:
     - uses: actions/checkout@v3
