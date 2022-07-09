@@ -66,3 +66,11 @@ der Subscription Id unter dem Feld Id. Diese Id muss mit dem Befehl `az account 
 Terraform applyen: `terraform apply`
 
 Um den lokalen State zu laden: `terraform refresh`
+
+# Deploy
+```shell
+
+az appservice plan create --name renate --resource-group renatemanual --sku B2 --is-linux
+az webapp create --resource-group renate --plan Renate --name renate-app --multicontainer-config-type compose --multicontainer-config-file .\\docker-compose.webapp.yml
+
+```
