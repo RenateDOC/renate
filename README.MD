@@ -31,4 +31,25 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 > Ihr könnt hier eure Dokumentation zu den Herausforderungen hinzufügen oder euch im Team auf eine eigene Dokumentations Struktur einigen
 
-Dies ist ein Testpush
+```shell
+# login
+az acr login --name renatemanual
+
+# Frontend
+docker tag application_frontend renatemanual.azurecr.io/application_frontend:latest
+docker push renatemanual.azurecr.io/application_frontend:latest
+
+# DB Seed
+docker tag application_mongo-seed renatemanual.azurecr.io/application_mongo-seed:latest
+docker push renatemanual.azurecr.io/application_mongo-seed:latest
+
+
+# Backend
+docker tag application_api renatemanual.azurecr.io/application_api:latest
+docker push renatemanual.azurecr.io/application_api:latest
+
+# pullen
+docker pull renatemanual.azurecr.io/application_frontend:latest
+docker pull renatemanual.azurecr.io/application_mongo-seed:latest
+docker pull renatemanual.azurecr.io/application_api:latest
+```
