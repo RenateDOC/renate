@@ -59,3 +59,7 @@ docker pull renatemanual.azurecr.io/application_api:latest
 # Terraform
 
 Terraform initialisieren: `terraform init`
+
+Bei Azure Tenant einloggen (CLI) mit `az login --tenant kfwchallenge.onmicrosoft.com`. Als Resultat kommt ein JSON mit
+der Subscription Id unter dem Feld Id. Diese Id muss mit dem Befehl `az account set --subscription SUBSCRIPTION_ID` gesetzt werden.
+
