@@ -33,6 +33,7 @@ Die Applikation besteht im wesentlichen aus drei Seiten
 
 ```shell
 # login
+az login
 az acr login --name renatemanual
 
 # Frontend
