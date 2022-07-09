@@ -54,3 +54,8 @@ docker pull renatemanual.azurecr.io/application_frontend:latest
 docker pull renatemanual.azurecr.io/application_mongo-seed:latest
 docker pull renatemanual.azurecr.io/application_api:latest
 ```
+
+
+# Terraform
+
+Terraform initialisieren: `terraform init`
