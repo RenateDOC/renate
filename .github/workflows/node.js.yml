@@ -58,7 +58,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
         
     - name: Build the Docker image
-      run: docker-compose build --tag ${{ matrix.project }}:$(date +%s)
+      run: docker-compose build
         
     # Frontend
     - run: docker tag application_frontend renatemanual.azurecr.io/application_frontend:latest
