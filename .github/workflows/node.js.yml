@@ -13,7 +13,6 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -38,3 +37,37 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    needs: "test"
+        
+    defaults:
+      run:
+        shell: bash
+        working-directory: 'application'
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: azure/docker-login@v1
+      with:
+        login-server: renatemanual.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+        
+    - name: Build the Docker image
+      run: docker-compose build --tag ${{ matrix.project }}:$(date +%s)
+        
+    # Frontend
+    - run: docker tag application_frontend renatemanual.azurecr.io/application_frontend:latest
+    - run: docker push renatemanual.azurecr.io/application_frontend:latest
+
+    # DB Seed
+    - run: docker tag application_mongo-seed renatemanual.azurecr.io/application_mongo-seed:latest
+    - run: docker push renatemanual.azurecr.io/application_mongo-seed:latest
+
+    # Backend
+    - run: docker tag application_api renatemanual.azurecr.io/application_api:latest
+    - run: docker push renatemanual.azurecr.io/application_api:latest
