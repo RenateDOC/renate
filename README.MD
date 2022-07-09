@@ -64,3 +64,5 @@ Bei Azure Tenant einloggen (CLI) mit `az login --tenant kfwchallenge.onmicrosoft
 der Subscription Id unter dem Feld Id. Diese Id muss mit dem Befehl `az account set --subscription SUBSCRIPTION_ID` gesetzt werden.
 
 Terraform applyen: `terraform apply`
+
+Um den lokalen State zu laden: `terraform refresh`
