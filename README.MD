@@ -74,3 +74,27 @@ az appservice plan create --name renate --resource-group renatemanual --sku B2 -
 az webapp create --resource-group renate --plan Renate --name renate-app --multicontainer-config-type compose --multicontainer-config-file .\\docker-compose.webapp.yml
 
 ```
+
+# Azure Policies
+
+## Erstellen eines Storage Accounts
+1. In der Suchleiste nach "Storage Accounts" suchen
+2. Subscription "Renate" wählen
+3. Ressource Group "renate" wählen
+4. Einen Storage Account Namen wählen (lowercase letters and numbers)
+5. Region auswählen
+6. Erstellen mit Klick auf Preview + create und dann create
+
+## Erstellen einer Policy
+1. In der Suchleiste nach "Policy" suchen 
+2. Links unter Authoring auf "Definitions" klicken
+3. Rechts oben im Suchfeld nach "location" filtern
+4. Klick auf "Allowed locations"
+5. Oben auf "Assign" klicken
+6. Scope "Renate" auswählen (resource group nicht auswählen)
+7. Im Reiter "Parameters" Allowed Locations auf "West Europe" einstellen
+8. Erstellen mit Klick auf Preview + create und dann create
+
+## Policy Übersicht
+- Unter Policy wird jetzt angezeigt, welche Ressourcen mit den Policies complien. 
+- Nach Klick auf den Policynamen bekommt man eine Liste von Ressourcen, die nicht complien
